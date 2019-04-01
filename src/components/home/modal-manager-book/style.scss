@@ -1,0 +1,11 @@
+div.el-dialog__wrapper {
+  div.el-dialog { width: 30%; padding: 5px 30px; border-radius: 10px;
+    div.el-dialog__body {
+      div.el-input { font-family: $montserratMedium; margin: 10px 0;
+        div.el-input-group__prepend { font-family: $montserratMedium; }
+      }
+
+      div.action-buttons { display: flex; justify-content: space-evenly; margin-top: 20px; }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+/build/
+/config/
+/dist/
+/test/
+/src/store/modules/mocks/**/*

@@ -1,0 +1,308 @@
+@mixin column($count, $gap) {
+  -webkit-column-count:   $count;
+  -moz-column-count:      $count;
+  column-count:           $count;
+
+  -webkit-column-gap: $gap;
+  -moz-column-gap:    $gap;
+  column-gap:         $gap;
+}
+
+@mixin box-sizing() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -ms-box-sizing:     border-box;
+  box-sizing:         border-box;
+}
+
+@mixin transform-translate($x, $y) {
+    -webkit-transform:  translate($x, $y);
+    -moz-transform:     translate($x, $y);
+    -ms-transform:      translate($x, $y);
+    transform:          translate($x, $y);
+}
+
+@mixin transform-translate3d($x, $y, $z) {
+    -webkit-transform:  translate3d($x, $y, $z);
+    -moz-transform:     translate3d($x, $y, $z);
+    -ms-transform:      translate3d($x, $y, $z);
+    transform:          translate3d($x, $y, $z);
+}
+
+@mixin transform-origin($x, $y, $z) {
+  -webkit-transform-origin: $x $y $z;
+  -moz-transform-origin:    $x $y $z;
+  -ms-transform-origin:     $x $y $z;
+  transform-origin:         $x $y $z;
+}
+
+@mixin transform-scale($x, $y) {
+  -webkit-transform:  scale($x, $y);
+  -moz-transform:     scale($x, $y);
+  -ms-transform:      scale($x, $y);
+  transform:          scale($x, $y);
+}
+
+@mixin transform-rotate($deg) {
+  -webkit-transform:  rotate($deg);
+  -moz-transform:     rotate($deg);
+  -ms-transform:      rotate($deg);
+  transform:          rotate($deg);
+}
+
+@mixin transform-rotateX($deg) {
+  -webkit-transform:  rotateX($deg);
+  -moz-transform:     rotateX($deg);
+  -ms-transform:      rotateX($deg);
+  transform:          rotateX($deg);
+}
+
+@mixin transform-rotateY($deg) {
+  -webkit-transform:  rotateY($deg);
+  -moz-transform:     rotateY($deg);
+  -ms-transform:      rotateY($deg);
+  transform:          rotateY($deg);
+}
+
+@mixin transform-skewY($degY) {
+  -webkit-transform:  skewY($degY);
+  -moz-transform:     skewY($degY);
+  -ms-transform:      skewY($degY);
+  transform:          skewY($degY);
+}
+
+@mixin transform-skewX($degX) {
+  -webkit-transform:  skewX($degX);
+  -moz-transform:     skewX($degX);
+  -ms-transform:      skewX($degX);
+  transform:          skewX($degX);
+}
+
+@mixin transition($seletor, $tempo, $tipoAnimacao) {
+  -webkit-transition: $seletor $tempo $tipoAnimacao;
+  -moz-transition:    $seletor $tempo $tipoAnimacao;
+  -ms-transition:     $seletor $tempo $tipoAnimacao;
+  transition:         $seletor $tempo $tipoAnimacao;
+}
+
+@mixin transition-delay($seletor, $tempo, $tipoAnimacao, $delay) {
+  -webkit-transition: $seletor $tempo $tipoAnimacao $delay;
+  -moz-transition:    $seletor $tempo $tipoAnimacao $delay;
+  -ms-transition:     $seletor $tempo $tipoAnimacao $delay;
+  transition:         $seletor $tempo $tipoAnimacao $delay;
+}
+
+@mixin background-size($width, $height) {
+  -webkit-background-size:  $width $height !important;
+  -moz-background-size:     $width $height !important;
+  -ms-background-size:      $width $height !important;
+  background-size:          $width $height !important;
+}
+
+@mixin border-radius($ray) {
+  -webkit-border-radius:  $ray;
+  -moz-border-radius:     $ray;
+  -ms-border-radius:      $ray;
+  border-radius:          $ray;
+}
+
+@mixin animation($nameAnimationKeyframe, $timeAnimation, $animationType, $delay, $iterationCount) {
+  -webkit-animation:  $nameAnimationKeyframe $timeAnimation $animationType $delay $iterationCount;
+  -moz-animation:     $nameAnimationKeyframe $timeAnimation $animationType $delay $iterationCount;
+  -ms-animation:      $nameAnimationKeyframe $timeAnimation $animationType $delay $iterationCount;
+  animation:          $nameAnimationKeyframe $timeAnimation $animationType $delay $iterationCount;
+}
+
+@mixin blur($blur) {
+  filter:         blur($blur);
+  -ms-filter:     blur($blur);
+  -moz-filter:    blur($blur);
+  -webkit-filter: blur($blur);
+
+  -webkit-backface-visibility:  hidden;
+  -moz-backface-visibility:     hidden;
+  -ms-backface-visibility:      hidden;
+  backface-visibility:          hidden;
+
+  -webkit-perspective:  1000;
+  -moz-perspective:     1000;
+  -ms-perspective:      1000;
+  perspective:          1000;
+}
+
+@mixin gray-filter($percentage) {
+    -webkit-filter: grayscale($percentage);
+    -moz-filter:    grayscale($percentage);
+    -ms-filter:     grayscale($percentage);
+    -o-filter:      grayscale($percentage);
+    filter:         grayscale($percentage);
+    filter: gray; /* IE 6-9 */
+}
+
+@mixin gray-filter-important($percentage) {
+    -webkit-filter: grayscale($percentage) !important;
+    -moz-filter:    grayscale($percentage) !important;
+    -ms-filter:     grayscale($percentage) !important;
+    -o-filter:      grayscale($percentage) !important;
+    filter:         grayscale($percentage) !important;
+    filter: gray; /* IE 6-9 */
+}
+
+@mixin box-shadow($angulo, $distancia, $blur, $spread, $red, $green, $blue, $opacity){
+  -webkit-box-shadow: $angulo $distancia $blur $spread rgba($red, $green, $blue, $opacity);
+-moz-box-shadow:      $angulo $distancia $blur $spread rgba($red, $green, $blue, $opacity);
+box-shadow:           $angulo $distancia $blur $spread rgba($red, $green, $blue, $opacity);
+}
+
+@mixin placeholder-color($color, $opacity) {
+    ::-webkit-input-placeholder { color: rgba($color, $opacity); }
+    :-moz-placeholder           { color: rgba($color, $opacity); }
+    ::-moz-placeholder          { color: rgba($color, $opacity); }
+    :-moz-input-placeholder     { color: rgba($color, $opacity); }
+    ::-moz-input-placeholder    { color: rgba($color, $opacity); }
+    :-ms-input-placeholder      { color: rgba($color, $opacity); }
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type=number] { -moz-appearance: textfield; }
+
+input, select, textarea {
+    &:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset !important; }
+
+    &:invalid, &:required {
+      box-shadow: none !important;
+    }
+}
+
+* { padding: 0; margin: 0; outline: none !important;
+  -webkit-tap-highlight-color:  rgba(0,0,0,0);
+  -moz-tap-highlight-color:     rgba(0,0,0,0);
+
+  -webkit-touch-callout:  none;
+  /*-webkit-user-select:    none;
+  -moz-user-select:       none;
+  user-select:            none;*/
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -ms-box-sizing:     border-box;
+  box-sizing:         border-box;
+
+  /*
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  -ms-box-sizing:     border-box;
+  box-sizing:         border-box;
+  */
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-font-smoothing:    subpixel-antialiased;
+  -o-font-smoothing:      subpixel-antialiased;
+  -ms-font-smoothing:     subpixel-antialiased;
+  font-smoothing:         subpixel-antialiased;
+}
+
+html { height:100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust:   100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section { display: block; }
+
+audio,
+canvas { display: inline-block; *display: inline; *zoom: 1; }
+
+audio:not([controls]) { display: none; }
+
+[hidden] { display: none; }
+
+ul { list-style: none; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; -webkit-backface-visibility: hidden; }
+
+form { margin: 0; }
+
+fieldset { border: 0; margin: 0; padding: 0; }
+
+label,
+select { cursor: pointer; }
+
+input, textarea, select {
+  -webkit-appearance: none !important;
+  -moz-appearance:    none !important;
+  -ms-appearance:     none !important;
+  appearance:         none !important;
+}
+
+legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+
+button,
+input[type=text],
+input[type=password],
+select,
+textarea { vertical-align: baseline; *vertical-align: middle; box-sizing: border-box; }
+
+button, input { line-height: normal; }
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+
+button[disabled],
+input[disabled],
+body { cursor: default; font-weight:normal; }
+
+input[type="checkbox"],
+input[type="radio"] { padding: 0; *width: 13px; *height: 13px; }
+
+input[type="email"] { text-transform: lowercase; }
+
+input[type="search"] { -webkit-appearance: textfield; }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner { border: 0; padding: 0; }
+
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+
+table { border-collapse: collapse; border-spacing: 0;
+  td { vertical-align: middle; }
+}
+
+::-moz-selection { background: #005598; color: #fff; text-shadow: none; }
+
+::selection { background: #005598; color: #fff; text-shadow: none; }
+
+::-webkit-selection { background: #005598; color: #fff; text-shadow: none; }
+
+a { text-decoration: none;
+  &:focus { outline: 0; text-decoration: none; }
+}
+
+html, body { overflow-x: hidden !important; }
+
+//==================SCROLLBARSTYLES==================
+
+$scrollbarColor: lighten(#cdcdcd, 50%);
+
+::-webkit-scrollbar { $widthHeight: 6px; width: $widthHeight; height: $widthHeight; @include border-radius(100px);
+  &, &:hover { background-color: darken($scrollbarColor, 20%); }
+}
+
+::-webkit-scrollbar-thumb:vertical,
+::-webkit-scrollbar-thumb:horizontal,
+::-webkit-scrollbar-thumb:horizontal:active, ::-webkit-scrollbar-thumb:vertical:active { background: darken($scrollbarColor, 40%); @include border-radius(100px); }
+
+//==================SCROLLBARSTYLES==================
