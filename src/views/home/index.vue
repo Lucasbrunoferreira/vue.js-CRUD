@@ -2,29 +2,29 @@
   <section class="home">
     <ul class="books-list">
       <li
-        v-for="(item, index) in 10"
-        :key="index"
+        v-for="(book, index) in getterAllBooks"
+        :key="book.bookId"
       >
         <img
-          :src="randomBookIcon()"
+          :src="index <= 4 ? `/icons/books/book-${index}.svg` : '/icons/books/book-0.svg'"
           alt="book"
         >
 
         <div class="book-description">
-          <span class="book-name">Além do horizontea</span>
+          <span class="book-name">{{ book.name }}</span>
 
-          <span class="book-author">Cecilya Rodrigues</span>
+          <span class="book-author">{{ book.author }}</span>
 
-          <span class="book-price">$ 16.98</span>
+          <span class="book-price">R$ {{ book.price }}</span>
 
-          <span class="book-genre">Aventura</span>
+          <span class="book-genre">{{ book.genre }}</span>
         </div>
 
         <div class="manager-book">
           <el-button
             round
             icon="el-icon-edit"
-            @click="managerBookModal(item, true)"
+            @click="managerBookModal(book, true)"
           >
             Editar
           </el-button>
@@ -32,6 +32,7 @@
           <el-button
             round
             icon="el-icon-delete"
+            @click="confirmDeleteBook(book.bookId)"
           >
             Deletar
           </el-button>

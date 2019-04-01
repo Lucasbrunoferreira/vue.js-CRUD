@@ -1,8 +1,8 @@
-const HOST = 'http://localhost:500'
+const HOST = 'http://localhost:5000'
 const API_URL = `${HOST}/api`
 
-const AUTHOR_API = `${API_URL}/author`
+const BOOK_API = `${API_URL}/book`
 
 export default {
-  AUTHOR_API
+  BOOK_API
 }

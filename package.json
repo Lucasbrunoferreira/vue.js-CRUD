@@ -18,7 +18,6 @@
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "vuex-toast": "^0.1.3",
     "element-ui": "^2.7.0"
   },
   "devDependencies": {

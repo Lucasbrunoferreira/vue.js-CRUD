@@ -2,7 +2,7 @@
   <Modal
     :modal-title="bookToEdit ? 'Editar livro' : 'Adicionar novo livro'"
     :is-open="isOpenModal"
-    @closeModal="(val) => $emit('closeManagerBookModal', val)"
+    @closeModal="(val) => closeModal(val)"
   >
     <el-input
       v-model="bookName"
@@ -34,13 +34,16 @@
 
     <div class="action-buttons">
       <el-button
-        type="primary"
+        :loading="inRequest"
         round
+        type="primary"
+        @click="saveModalData()"
       >
         Salvar
       </el-button>
 
       <el-button
+        :disabled="inRequest"
         type="danger"
         round
         @click="$emit('closeManagerBookModal')"

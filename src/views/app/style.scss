@@ -4,8 +4,6 @@ html { overflow-x: hidden; overflow-y: auto; height: 100%; }
 
 body { overflow: hidden; min-height: 100%; }
 
-.el-tooltip__popper { font-family: $montserratRegular; }
-
 .app { width: 100%; display: flex; flex-direction: column; min-height: 100vh; position: relative; }
 
 .views-wrapper { width: 100%; position: relative; min-height: calc(100vh - 50px); }
@@ -13,3 +11,5 @@ body { overflow: hidden; min-height: 100%; }
 .disabled { opacity: 0.5; pointer-events: none; @include transition(all, 0.3s, ease); }
 
 svg { transform: scale(0.99); }
+
+.el-tooltip__popper, .el-notification, .el-message-box { font-family: $montserratRegular; }

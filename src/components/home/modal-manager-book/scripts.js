@@ -1,3 +1,4 @@
+import { mapActions } from 'vuex'
 import Modal from '../../modal/index.vue'
 
 export default {
@@ -8,22 +9,73 @@ export default {
       bookName: '',
       bookPrice: '',
       bookGenre: '',
-      bookAuthor: ''
+      bookAuthor: '',
+      inRequest: false,
+      isOpenManagerModal: false
     }
   },
-  mounted () {
-    if (this.bookToEdit) {
-      console.log(this.bookToEdit)
+  watch: {
+    isOpenModal (val) {
+      this.isOpenManagerModal = val
+    },
+    bookToEdit (val) {
+      this.managerModalValues(val)
+    }
+  },
+  methods: {
+    ...mapActions([
+      'actionEditBook'
+    ]),
+    saveModalData () {
+      this.inRequest = true
 
-      this.bookName = this.bookToEdit.name
+      const book = {
+        name: this.bookName,
+        price: this.bookPrice,
+        genre: this.bookGenre,
+        author: this.bookAuthor
+      }
 
-      this.bookPrice = this.bookToEdit.price
+      this.actionEditBook({ bookId: this.bookToEdit.bookId, book })
+        .then(() => {
+          this.inRequest = false
 
-      this.bookGenre = this.bookToEdit.genre
+          this.closeModal()
 
-      this.bookAuthor = this.bookToEdit.author
-    } else {
-      this.bookName = this.bookPrice = this.bookGenre = this.bookAuthor = ''
+          this.$notify({
+            title: 'Sucesso',
+            message: 'O Livro foi editado com sucesso!',
+            type: 'success'
+          })
+        })
+        .catch(() => {
+          this.inRequest = false
+
+          this.$notify.error({
+            title: 'Ops!',
+            message: 'Ocorreu um erro durante o processo...'
+          })
+        })
+    },
+    closeModal (val) {
+      this.$emit('closeManagerBookModal', val)
+
+      this.inRequest = false
+
+      this.managerModalValues(null)
+    },
+    managerModalValues (value) {
+      if (value) {
+        this.bookName = this.bookToEdit.name
+
+        this.bookPrice = this.bookToEdit.price
+
+        this.bookGenre = this.bookToEdit.genre
+
+        this.bookAuthor = this.bookToEdit.author
+      } else {
+        this.bookName = this.bookPrice = this.bookGenre = this.bookAuthor = ''
+      }
     }
   }
 }

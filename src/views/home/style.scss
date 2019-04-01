@@ -1,6 +1,6 @@
 section.home { color: #333; background-image: url('/images/books.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;
   ul.books-list { display: flex; padding: 20px; flex-wrap: wrap;
-    li { border: 1px solid #ddd; display: flex; box-sizing: border-box; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); position: relative; border-radius: 5px; padding: 20px; max-width: 300px; margin: 20px; background: #f3f6fde1;
+    li { border: 1px solid #ddd; display: flex; box-sizing: border-box; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); position: relative; border-radius: 5px; padding: 20px; min-width: 300px; max-width: 350px; margin: 20px; background: #f3f6fde1; justify-content: space-between;
       &:hover {
         .manager-book { display: flex; }
       }

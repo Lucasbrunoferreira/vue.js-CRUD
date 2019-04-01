@@ -7,10 +7,8 @@ header.header-nav { background: $primaryBlue; width: 100%; height: 50px; display
 
   div.nav-wrapper { display: flex;
     nav { line-height: 50px;
-      button { background: transparent; border: 1px solid transparent; @include transition(all, 0.4s, ease);
+      button { background: transparent; border: 1px solid transparent; @include transition(all, 0.4s, ease); color: #fff; font-family: $montserratRegular;
         &:hover { background: transparent; border: 1px solid #fff; }
-
-        a { color: #fff; font-family: $montserratRegular; }
       }
     }
 

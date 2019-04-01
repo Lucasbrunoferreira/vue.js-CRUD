@@ -11,15 +11,7 @@
     <div class="nav-wrapper">
       <nav>
         <el-button>
-          <router-link to="/">
-            Lista de Livros
-          </router-link>
-        </el-button>
-
-        <el-button>
-          <router-link to="#">
-            Novo Livro
-          </router-link>
+          Novo Livro
         </el-button>
       </nav>
     </div>

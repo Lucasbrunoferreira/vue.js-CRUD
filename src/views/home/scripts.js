@@ -3,6 +3,11 @@ import {
   ModalManagerBook
 } from '@/components'
 
+import {
+  mapActions,
+  mapGetters
+} from 'vuex'
+
 export default {
   components: {
     HeaderNav,
@@ -14,16 +19,56 @@ export default {
       bookToEdit: null
     }
   },
+  mounted () {
+    this.actionGetAllBooks()
+  },
+  computed: {
+    ...mapGetters([
+      'getterAllBooks'
+    ])
+  },
   methods: {
-    randomBookIcon () {
-      const random = Math.floor(Math.random() * (0 - 5) + 5)
+    ...mapActions([
+      'actionGetAllBooks',
+      'actionDeleteBook'
+    ]),
+    managerBookModal (book, isOpeningModal) {
+      if (!isOpeningModal) {
+        setTimeout(() => {
+          this.bookToEdit = book
+        }, 200)
+      } else {
+        this.bookToEdit = book
+      }
 
-      return `/icons/books/book-${random}.svg`
+      this.isOpenManagerModal = isOpeningModal
     },
-    managerBookModal (book, modalStatus) {
-      this.bookToEdit = book
-
-      this.isOpenManagerModal = modalStatus
+    confirmDeleteBook (bookId) {
+      this.$confirm('Ao deletar este livro, não sera possível recuperá-lo. Deseja continuar?', 'Atenção', {
+        confirmButtonText: 'Sim',
+        cancelButtonText: 'Cancelar',
+        type: 'warning'
+      })
+        .then(() => {
+          this.deleteBook(bookId)
+        })
+        .catch((cancel) => Promise.resolve(cancel))
+    },
+    deleteBook (bookId) {
+      this.actionDeleteBook(bookId)
+        .then(() => {
+          this.$notify({
+            title: 'Sucesso',
+            message: 'O Livro foi excluído com sucesso!',
+            type: 'success'
+          })
+        })
+        .catch(() => {
+          this.$notify.error({
+            title: 'Ops!',
+            message: 'Ocorreu um erro durante o processo...'
+          })
+        })
     }
   }
 }
