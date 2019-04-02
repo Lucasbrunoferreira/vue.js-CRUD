@@ -36,7 +36,6 @@ export default {
       'actionDeleteBook'
     ]),
     openEditingModal (book) {
-      console.log(book)
       this.modalOptions.bookToEdit = book
       this.modalOptions.isEditing = true
     },
