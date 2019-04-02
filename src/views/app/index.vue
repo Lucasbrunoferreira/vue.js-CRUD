@@ -1,7 +1,5 @@
 <template>
   <div class="app">
-    <HeaderNav />
-
     <router-view class="views-wrapper" />
   </div>
 </template>

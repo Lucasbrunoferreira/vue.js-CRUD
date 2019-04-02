@@ -10,7 +10,7 @@
 
     <div class="nav-wrapper">
       <nav>
-        <el-button>
+        <el-button @click="$emit('openRegisterBook', true)">
           Novo Livro
         </el-button>
       </nav>

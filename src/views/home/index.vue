@@ -1,5 +1,7 @@
 <template>
   <section class="home">
+    <HeaderNav @openRegisterBook="(val) => { modalOptions.isRegister = val }" />
+
     <ul class="books-list">
       <li
         v-for="(book, index) in getterAllBooks"
@@ -24,7 +26,7 @@
           <el-button
             round
             icon="el-icon-edit"
-            @click="managerBookModal(book, true)"
+            @click="openEditingModal(book)"
           >
             Editar
           </el-button>
@@ -40,10 +42,22 @@
       </li>
     </ul>
 
+    <div
+      v-if="getterAllBooks.length <= 0"
+      class="no-book"
+    >
+      <img
+        src="/icons/no-book.svg"
+        alt="no book"
+      >
+
+      <span>Não há livros cadastrados...</span>
+    </div>
+
     <ModalManagerBook
-      :is-open-modal="isOpenManagerModal"
-      :book-to-edit="bookToEdit"
-      @closeManagerBookModal="() => managerBookModal(null, false)"
+      :is-open-modal="modalOptions.isEditing || modalOptions.isRegister"
+      :modal-options="modalOptions"
+      @closeManagerBookModal="() => closeModal()"
     />
   </section>
 </template>

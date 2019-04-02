@@ -51,6 +51,15 @@ const actions = {
       })
       .catch((err) => Promise.reject(err))
   },
+  actionAddBook ({ commit }, book) {
+    return booksAPi.addBook(book)
+      .then((response) => {
+        commit(SET_ONE_BOK, response.data)
+
+        return Promise.resolve(response)
+      })
+      .catch((err) => Promise.reject(err))
+  },
   actionDeleteBook ({ commit }, bookId) {
     return booksAPi.deleteBook(bookId)
       .then((response) => {

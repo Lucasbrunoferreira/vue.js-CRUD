@@ -1,18 +1,20 @@
 <template>
-  <Modal
-    :modal-title="bookToEdit ? 'Editar livro' : 'Adicionar novo livro'"
-    :is-open="isOpenModal"
-    @closeModal="(val) => closeModal(val)"
+  <el-dialog
+    :title="modalTitle"
+    :visible.sync="isOpenModal"
+    :before-close="() => { $emit('closeManagerBookModal') }"
   >
     <el-input
       v-model="bookName"
       placeholder="Nome do Livro"
+      maxlength="30"
       clearable
     />
 
     <el-input
       v-model="bookPrice"
       placeholder="Valor de venda"
+      type="number"
       clearable
     >
       <template slot="prepend">
@@ -22,6 +24,7 @@
 
     <el-input
       v-model="bookGenre"
+      maxlength="20"
       placeholder="Genêro (ação, aventura...)"
       clearable
     />
@@ -29,6 +32,7 @@
     <el-input
       v-model="bookAuthor"
       placeholder="Autor"
+      maxlength="40"
       clearable
     />
 
@@ -51,7 +55,7 @@
         Cancelar
       </el-button>
     </div>
-  </Modal>
+  </el-dialog>
 </template>
 
 <script src="./scripts.js"></script>

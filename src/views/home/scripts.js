@@ -15,8 +15,11 @@ export default {
   },
   data () {
     return {
-      isOpenManagerModal: false,
-      bookToEdit: null
+      modalOptions: {
+        isRegister: false,
+        isEditing: false,
+        bookToEdit: {}
+      }
     }
   },
   mounted () {
@@ -32,16 +35,10 @@ export default {
       'actionGetAllBooks',
       'actionDeleteBook'
     ]),
-    managerBookModal (book, isOpeningModal) {
-      if (!isOpeningModal) {
-        setTimeout(() => {
-          this.bookToEdit = book
-        }, 200)
-      } else {
-        this.bookToEdit = book
-      }
-
-      this.isOpenManagerModal = isOpeningModal
+    openEditingModal (book) {
+      console.log(book)
+      this.modalOptions.bookToEdit = book
+      this.modalOptions.isEditing = true
     },
     confirmDeleteBook (bookId) {
       this.$confirm('Ao deletar este livro, não sera possível recuperá-lo. Deseja continuar?', 'Atenção', {
@@ -49,9 +46,8 @@ export default {
         cancelButtonText: 'Cancelar',
         type: 'warning'
       })
-        .then(() => {
-          this.deleteBook(bookId)
-        })
+        .then(() => this.deleteBook(bookId))
+
         .catch((cancel) => Promise.resolve(cancel))
     },
     deleteBook (bookId) {
@@ -69,6 +65,10 @@ export default {
             message: 'Ocorreu um erro durante o processo...'
           })
         })
+    },
+    closeModal () {
+      this.modalOptions.isEditing = this.modalOptions.isRegister = false
+      this.modalOptions.bookToEdit = {}
     }
   }
 }

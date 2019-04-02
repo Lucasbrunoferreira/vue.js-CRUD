@@ -21,6 +21,16 @@ export default {
       }
     })
   },
+  addBook (book) {
+    return axios({
+      method: 'post',
+      url: ApiEndpoint.BOOK_API,
+      data: book,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  },
   deleteBook (bookId) {
     return axios({
       method: 'delete',

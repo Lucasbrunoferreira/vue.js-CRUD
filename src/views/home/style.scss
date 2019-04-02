@@ -1,6 +1,6 @@
 section.home { color: #333; background-image: url('/images/books.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;
   ul.books-list { display: flex; padding: 20px; flex-wrap: wrap;
-    li { border: 1px solid #ddd; display: flex; box-sizing: border-box; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); position: relative; border-radius: 5px; padding: 20px; min-width: 300px; max-width: 350px; margin: 20px; background: #f3f6fde1; justify-content: space-between;
+    li { border: 1px solid #ddd; display: flex; box-sizing: border-box; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25); position: relative; border-radius: 5px; padding: 20px; min-width: 300px; max-width: 400px; margin: 20px; background: #f3f6fde1; justify-content: space-between;
       &:hover {
         .manager-book { display: flex; }
       }
@@ -13,15 +13,21 @@ section.home { color: #333; background-image: url('/images/books.jpg'); backgrou
 
           &.book-author, &.book-price, &.book-genre { font-family: $montserratRegular; text-align: center; }
 
-          &.book-author { text-align: end; font-size: 14px; }
+          &.book-author { text-align: end; font-size: 14px; max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
           &.book-price { font-family: $montserratBold; font-size: 25px; text-align: end; margin: 20px 0; }
 
-          &.book-genre { display: inline-block; border: 1px solid #ddd; margin-top: 25px; border-radius: 55px; text-align: center; font-size: 13px; padding: 5px; max-width: 110px; }
+          &.book-genre { display: inline-block; border: 1px solid #ddd; margin-top: 25px; border-radius: 55px; text-align: center; font-size: 13px; padding: 5px; }
         }
       }
 
       div.manager-book { background: rgba(51, 51, 51, 0.192); width: 100%; height: 100%; display: none; position: absolute; top: 0; left: 0; border-radius: 5px; justify-content: center; align-items: center; }
     }
+  }
+
+  div.no-book { opacity: 0.2; display: flex; max-height: 300px; justify-content: center; flex-direction: column; align-items: center; margin-top: 150px;
+    img { display: block; width: 100px; margin-bottom: 30px; }
+
+    span { font-family: $montserratMedium; font-size: 30px; }
   }
 }
